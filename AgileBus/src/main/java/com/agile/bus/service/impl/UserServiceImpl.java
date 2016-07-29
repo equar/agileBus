@@ -2,8 +2,8 @@ package com.agile.bus.service.impl;
 
 import java.sql.SQLException;
 
-import com.jcg.examples.dao.UserDao;
-import com.jcg.examples.service.UserService;
+import com.agile.bus.dao.UserDao;
+import com.agile.bus.service.UserService;
 
 public class UserServiceImpl implements UserService
 {
@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService
 				this.userDao = userDao;
 		}
 
-		@Override
 		public boolean isValidUser(String username, String password) throws SQLException
 		{
 				return userDao.isValidUser(username, password);

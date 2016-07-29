@@ -20,7 +20,6 @@ public class UserDaoImpl implements UserDao {
 		this.dataSource = dataSource;
 	}
 
-	@Override
 	public boolean isValidUser(String username, String password) throws SQLException {
 		String query = "Select count(1) from user where username = ? and password = ?";
 		PreparedStatement pstmt = dataSource.getConnection().prepareStatement(query);

@@ -24,7 +24,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/jcg" />
+		<property name="url" value="jdbc:mysql://localhost:3306/agilebus" />
 		<property name="username" value="root" />
 		<property name="password" value="toor" />
 	</bean>
