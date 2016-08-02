@@ -9,24 +9,24 @@
 
 
 
-	<bean id="loginDelegate" class="com.agile.bus.service.delegate.LoginDelegate">
+	<bean id="loginDelegate" class="com.agilebus.delegate.LoginDelegate">
 		<property name="userService" ref="userService"></property>
 	</bean>
 
-	<bean id="userService" class="com.agile.bus.service.service.impl.UserServiceImpl">
+	<bean id="userService" class="com.agilebus.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 
-	<bean name="userDao" class="com.agile.bus.service.dao.impl.UserDaoImpl">
+	<bean name="userDao" class="com.agilebus.dao.impl.UserDaoImpl">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/agilebus" />
+		<property name="url" value="jdbc:mysql://localhost:3306/test" />
 		<property name="username" value="root" />
-		<property name="password" value="toor" />
+		<property name="password" value="password" />
 	</bean>
 
 </beans>

@@ -1,7 +1,7 @@
-package com.agile.bus.dao;
+package com.agilebus.service;
 
 import java.sql.SQLException;
 
-public interface UserDao {
+public interface UserService {
 	public boolean isValidUser(String username, String password) throws SQLException;
 }

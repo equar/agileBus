@@ -1,4 +1,4 @@
-package com.agile.bus.util;
+package com.agilebus.util;
 
 public class agileUtil {
 
