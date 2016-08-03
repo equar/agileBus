@@ -31,7 +31,7 @@ public class LoginController {
 			@ModelAttribute("loginBean") LoginBean loginBean) {
 		ModelAndView model = null;
 		try {
-			boolean isValidUser = loginDelegate.isValidUser(loginBean.getUsername(), loginBean.getPassword());
+			boolean isValidUser = loginDelegate.isValidUser(loginBean);
 			if (isValidUser) {
 				System.out.println("User Login Successful");
 				request.setAttribute("loggedInUser", loginBean.getUsername());
@@ -45,6 +45,90 @@ public class LoginController {
 			e.printStackTrace();
 		}
 
+		return model;
+	}
+
+	@RequestMapping(value = "/changepassword", method = RequestMethod.POST)
+	public ModelAndView changePassword(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("loginBean") LoginBean loginBean) {
+		ModelAndView model = null;
+		try {
+			boolean isValidUser = false;
+			if (isValidUser) {
+				System.out.println("User Login Successful");
+				request.setAttribute("loggedInUser", loginBean.getUsername());
+				model = new ModelAndView("welcome");
+			} else {
+				model = new ModelAndView("login");
+				request.setAttribute("message", "Invalid credentials!!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return model;
+	}
+
+	@RequestMapping(value = "/resetpassword", method = RequestMethod.POST)
+	public ModelAndView resetPassword(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("loginBean") LoginBean loginBean) {
+		ModelAndView model = null;
+		try {
+			boolean isValidUser = false;
+			if (isValidUser) {
+				System.out.println("User Login Successful");
+				request.setAttribute("loggedInUser", loginBean.getUsername());
+				model = new ModelAndView("welcome");
+			} else {
+				model = new ModelAndView("login");
+				request.setAttribute("message", "Invalid credentials!!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return model;
+	}
+
+	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)
+	public ModelAndView registerUser(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("loginBean") LoginBean loginBean) {
+		ModelAndView model = null;
+		try {
+			boolean isValidUser = false;
+			if (isValidUser) {
+				System.out.println("User Login Successful");
+				request.setAttribute("loggedInUser", loginBean.getUsername());
+				model = new ModelAndView("welcome");
+			} else {
+				model = new ModelAndView("login");
+				request.setAttribute("message", "Invalid credentials!!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return model;
+	}
+
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST)
+	public ModelAndView forgotPassword(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("loginBean") LoginBean loginBean) {
+		ModelAndView model = null;
+		try {
+			boolean isValidUser = false;
+			if (isValidUser) {
+				System.out.println("User Login Successful");
+				request.setAttribute("loggedInUser", loginBean.getUsername());
+				model = new ModelAndView("welcome");
+			} else {
+				model = new ModelAndView("login");
+				request.setAttribute("message", "Invalid credentials!!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return model;
 	}
 }

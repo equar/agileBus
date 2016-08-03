@@ -2,20 +2,38 @@ package com.agilebus.delegate;
 
 import java.sql.SQLException;
 
-import com.agilebus.service.UserService;
+import com.agilebus.model.LoginBean;
+import com.agilebus.service.LoginService;
 
 public class LoginDelegate {
-	private UserService userService;
+	private LoginService loginService;
 
-	public UserService getUserService() {
-		return this.userService;
+	public LoginService getLoginService() {
+		return loginService;
 	}
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
 	}
 
-	public boolean isValidUser(String username, String password) throws SQLException {
-		return userService.isValidUser(username, password);
+	public boolean isValidUser(LoginBean loginBean) throws SQLException {
+		return loginService.isValidUser(loginBean);
 	}
+
+	public boolean isUserRegistered(String username, String password) throws SQLException {
+		return false;
+	}
+
+	public boolean isPasswordResetted(String username, String password) throws SQLException {
+		return false;
+	}
+
+	public boolean isPasswordUpdated(String username, String password) throws SQLException {
+		return false;
+	}
+
+	public boolean isPasswordChanged(String username, String password) throws SQLException {
+		return false;
+	}
+
 }

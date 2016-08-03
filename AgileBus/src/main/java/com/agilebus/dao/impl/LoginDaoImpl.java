@@ -6,9 +6,10 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import com.agilebus.dao.UserDao;
+import com.agilebus.dao.LoginDao;
+import com.agilebus.model.LoginBean;
 
-public class UserDaoImpl implements UserDao {
+public class LoginDaoImpl implements LoginDao {
 
 	DataSource dataSource;
 
@@ -20,12 +21,11 @@ public class UserDaoImpl implements UserDao {
 		this.dataSource = dataSource;
 	}
 
-	@Override
-	public boolean isValidUser(String username, String password) throws SQLException {
+	public boolean isValidUser(LoginBean loginBean) throws SQLException {
 		String query = "Select count(1) from users where username = ? and password = ?";
 		PreparedStatement pstmt = dataSource.getConnection().prepareStatement(query);
-		pstmt.setString(1, username);
-		pstmt.setString(2, password);
+		pstmt.setString(1, loginBean.getUsername());
+		pstmt.setString(2, loginBean.getPassword());
 		ResultSet resultSet = pstmt.executeQuery();
 		if (resultSet.next())
 			return (resultSet.getInt(1) > 0);

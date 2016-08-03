@@ -7,17 +7,14 @@
 		<title>Login</title>
 	</head>
 	<body>
-	<h3>Sign Up</h3>
+	<h3>Forgot Password</h3>
 		<font color="red">${message}</font>
 		<form:form id="loginForm" method="post" action="registeruser" modelAttribute="loginBean">
 
-			<form:label path="email">Enter your email</form:label>
-			<form:input id="username" name="username" path="" /><br>
-			<form:label path="password">Enter your password</form:label>
-			<form:password id="password" name="password" path="" /><br>
-			<form:label path="terms">By signing up, you agree to our <a href#>terms and conditions</a></form:label>
-			<input type="submit" value="PROCEED" />
-		<form:label path="signin">Already have an account?  <a href#>SIGN IN</a></form:label>
+			<form:label path="email">Enter your email address and we will send you a link to reset your password</form:label>
+			<form:label path="email">Enter your Email</form:label>
+			<form:password id="email" name="email" path="" /><br>
+			<input type="submit" value="Submit" />
 		</form:form>
 	</body>
 </html>

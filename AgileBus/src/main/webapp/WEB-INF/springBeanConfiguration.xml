@@ -10,14 +10,14 @@
 
 
 	<bean id="loginDelegate" class="com.agilebus.delegate.LoginDelegate">
-		<property name="userService" ref="userService"></property>
+		<property name="loginService" ref="loginService"></property>
 	</bean>
 
-	<bean id="userService" class="com.agilebus.service.impl.UserServiceImpl">
-		<property name="userDao" ref="userDao"></property>
+	<bean id="loginService" class="com.agilebus.service.impl.LoginServiceImpl">
+		<property name="loginDao" ref="loginDao"></property>
 	</bean>
 
-	<bean name="userDao" class="com.agilebus.dao.impl.UserDaoImpl">
+	<bean name="loginDao" class="com.agilebus.dao.impl.LoginDaoImpl">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
