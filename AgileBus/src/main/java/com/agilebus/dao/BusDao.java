@@ -1,5 +1,9 @@
 package com.agilebus.dao;
 
-public class BusDao {
+import java.sql.SQLException;
 
+import com.agilebus.model.BusBean;
+
+public interface BusDao {
+	public boolean isValidUser(BusBean busBean) throws SQLException;
 }

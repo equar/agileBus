@@ -21,9 +21,13 @@ public class DisplayController {
 		model.setViewName("main");
 		logger.debug("HomePage-Displayed");
 		return model;
-
 	}
 
-	
+	@RequestMapping(value = "/aboutus", method = RequestMethod.GET)
+	public ModelAndView displayAboutUs() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("aboutus");
+		return model;
+	}
 
 }
