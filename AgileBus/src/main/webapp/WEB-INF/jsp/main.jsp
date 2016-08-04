@@ -9,10 +9,10 @@
 	<%@include file="header.jsp"%>
 	<%@include file="slidebus.jsp"%>
 	<div>different screens goes here</div>
-	<div>Top bus routes, cities and bus operators goes here</div>
-	
+
+	<%@include file="topbus.jsp"%>
 	<%@include file="footer.jsp"%>
-	
+
 
 </body>
 </html>

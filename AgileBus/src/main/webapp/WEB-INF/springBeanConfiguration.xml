@@ -21,6 +21,18 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
+	<bean id="busDelegate" class="com.agilebus.delegate.BusDelegate">
+		<property name="busService" ref="busService"></property>
+	</bean>
+
+	<bean id="busService" class="com.agilebus.service.impl.BusServiceImpl">
+		<property name="busDao" ref="busDao"></property>
+	</bean>
+
+	<bean name="busDao" class="com.agilebus.dao.impl.BusDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />

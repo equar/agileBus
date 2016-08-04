@@ -7,14 +7,16 @@
 		<title>Login</title>
 	</head>
 	<body>
-	<h3>Sign In</h3>
+	<h3>Change Password</h3>
 		<font color="red">${message}</font>
-		<form:form id="loginForm" method="post" action="changepassword" modelAttribute="loginBean">
+		<form:form id="changepasswordForm" method="post" action="changepassword" modelAttribute="loginBean">
 
-			<form:label path="username">Enter your email or mobile no</form:label>
+			<form:label path="username">Enter your email</form:label>
 			<form:input id="username" name="username" path="" /><br>
 			<form:label path="password">Enter your password</form:label>
 			<form:password id="password" name="password" path="" /><br>
+			<form:label path="confirmPassword">Confirm your password</form:label>
+			<form:password id="confirmPassword" name="confirmPassword" path="" /><br>
 			<input type="submit" value="Submit" />
 		</form:form>
 	</body>

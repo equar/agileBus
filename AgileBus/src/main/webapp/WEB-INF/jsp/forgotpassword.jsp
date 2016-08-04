@@ -9,9 +9,9 @@
 	<body>
 	<h3>Forgot Password</h3>
 		<font color="red">${message}</font>
-		<form:form id="loginForm" method="post" action="registeruser" modelAttribute="loginBean">
+		<form:form id="loginForm" method="post" action="forgotpassword" modelAttribute="loginBean">
 
-			<form:label path="email">Enter your email address and we will send you a link to reset your password</form:label>
+			<form:label path="">Enter your email address and we will send you a link to reset your password</form:label><br>
 			<form:label path="email">Enter your Email</form:label>
 			<form:password id="email" name="email" path="" /><br>
 			<input type="submit" value="Submit" />
