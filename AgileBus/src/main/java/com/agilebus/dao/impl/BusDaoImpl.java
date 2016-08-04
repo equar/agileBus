@@ -8,7 +8,6 @@ import javax.sql.DataSource;
 
 import com.agilebus.dao.BusDao;
 import com.agilebus.model.BusBean;
-import com.agilebus.model.LoginBean;
 
 public class BusDaoImpl implements BusDao {
 	DataSource dataSource;

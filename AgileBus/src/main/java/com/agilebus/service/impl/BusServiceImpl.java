@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 import com.agilebus.dao.BusDao;
 import com.agilebus.model.BusBean;
-import com.agilebus.model.LoginBean;
 import com.agilebus.service.BusService;
 
 public class BusServiceImpl implements BusService {

@@ -21,8 +21,8 @@ public class BusController {
 
 	@RequestMapping(value = "/searchbus", method = RequestMethod.GET)
 	public ModelAndView displaySearchBus(HttpServletRequest request, HttpServletResponse response, BusBean busBean) {
-		ModelAndView model = new ModelAndView("searchbus");
-		model.addObject("searchbus", busBean);
+		ModelAndView model = new ModelAndView("bussearch");
+		model.addObject("bussearch", busBean);
 		return model;
 	}
 
@@ -30,16 +30,21 @@ public class BusController {
 	public ModelAndView searchBus(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("busBean") BusBean busBean) {
 		ModelAndView model = null;
-		/*
-		 * try { boolean isValidUser = loginDelegate.isValidUser(busBean); if
-		 * (isValidUser) { System.out.println("User Login Successful");
-		 * request.setAttribute("loggedInUser", busBean.getUsername()); model =
-		 * new ModelAndView("welcome"); } else { model = new
-		 * ModelAndView("login"); request.setAttribute("message",
-		 * "Invalid credentials!!"); }
-		 * 
-		 * } catch (Exception e) { e.printStackTrace(); }
-		 */
+
+		try {
+			boolean isValidUser = busDelegate.isValidUser(busBean);
+			if (isValidUser) {
+				System.out.println("User Login Successful");
+				model = new ModelAndView("welcome");
+			} else {
+				model = new ModelAndView("bussearch");
+				request.setAttribute("message", "Invalid credentials!!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		model = new ModelAndView("searchbus");
 
 		return model;
