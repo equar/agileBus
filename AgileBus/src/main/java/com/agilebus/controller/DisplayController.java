@@ -10,7 +10,7 @@ import com.agilebus.util.agileUtil;
 
 @Controller
 public class DisplayController {
-	private static final Logger logger = Logger.getLogger(agileUtil.class);
+	private static final Logger logger = Logger.getLogger(DisplayController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView defaultPage() {

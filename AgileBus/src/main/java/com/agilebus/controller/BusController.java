@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.agilebus.delegate.BusDelegate;
 import com.agilebus.model.BusBean;
+import com.agilebus.model.HelpBean;
+import com.agilebus.model.TicketBean;
 
 @Controller
 public class BusController {
@@ -47,6 +49,20 @@ public class BusController {
 
 		model = new ModelAndView("searchbus");
 
+		return model;
+	}
+	
+	@RequestMapping(value = "/printticket", method = RequestMethod.GET)
+	public ModelAndView displayPrintTicket(HttpServletRequest request, HttpServletResponse response, TicketBean ticketBean) {
+		ModelAndView model = new ModelAndView("printticket");
+		model.addObject("ticketBean", ticketBean);
+		return model;
+	}
+
+	@RequestMapping(value = "/writeus", method = RequestMethod.GET)
+	public ModelAndView displayWriteUs(HttpServletRequest request, HttpServletResponse response, HelpBean helpBean) {
+		ModelAndView model = new ModelAndView("needhelp");
+		model.addObject("helpBean", helpBean);
 		return model;
 	}
 
