@@ -21,7 +21,7 @@ public class BusController {
 	@Autowired
 	private BusDelegate busDelegate;
 
-	@RequestMapping(value = "/searchbus", method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/searchbus"}, method = RequestMethod.GET)
 	public ModelAndView displaySearchBus(HttpServletRequest request, HttpServletResponse response, BusBean busBean) {
 		ModelAndView model = new ModelAndView("bussearch");
 		model.addObject("bussearch", busBean);
@@ -63,6 +63,13 @@ public class BusController {
 	public ModelAndView displayWriteUs(HttpServletRequest request, HttpServletResponse response, HelpBean helpBean) {
 		ModelAndView model = new ModelAndView("needhelp");
 		model.addObject("helpBean", helpBean);
+		return model;
+	}
+	
+	@RequestMapping(value = "/ticketcancel", method = RequestMethod.GET)
+	public ModelAndView displayCancelTicket(HttpServletRequest request, HttpServletResponse response, TicketBean ticketBean) {
+		ModelAndView model = new ModelAndView("cancelticket");
+		model.addObject("ticketBean", ticketBean);
 		return model;
 	}
 

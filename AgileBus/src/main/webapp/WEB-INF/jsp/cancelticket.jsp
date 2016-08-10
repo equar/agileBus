@@ -1,12 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@include file="header.jsp"%>
+<%@include file="slidebus.jsp"%>
+<h3>Ticket Cancellation and refund</h3>
+<h4>Enter your details below</h4>
+<form:form id="cancelForm" method="post" action="ticketcancel"
+	modelAttribute="ticketBean">
+	<form:label path="ticketNumber">Ticket Number</form:label>
+	<form:input id="ticketNumber" name="ticketNumber" path="" />
+	<br>
+	<form:label path="emailId">Email ID</form:label>
+	<form:input id="emailId" name="emailId" path="" />
+	<br>
 
-</body>
-</html>
+	<input type="submit" value="Search" />
+</form:form>
+
+<%@include file="topbus.jsp"%>
+<%@include file="footer.jsp"%>

@@ -48,6 +48,7 @@
 		<servletapi.version>2.5</servletapi.version>
 		<junit.version>4.12</junit.version>
 		<springtest.version>4.0.3.RELEASE</springtest.version>
+		<springwebflow.version>2.4.4.RELEASE</springwebflow.version>
 	</properties>
 
 	<dependencies>
@@ -232,6 +233,12 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>${springwebflow.version}</version>
 		</dependency>
 	</dependencies>
 

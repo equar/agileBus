@@ -17,7 +17,12 @@
 	</bean>
 
 	<import resource="springBeanConfiguration.xml" />
-	
-	<import resource="spring-mail.xml"/>
+
+	<import resource="spring-mail.xml" />
+
+	<!-- Image resources -->
+	<!-- <mvc:resources mapping="/resources/**" location="/resources/"
+		cache-period="31556926" /> -->
+
 
 </beans>

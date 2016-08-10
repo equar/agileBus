@@ -12,7 +12,7 @@ import com.agilebus.util.agileUtil;
 public class DisplayController {
 	private static final Logger logger = Logger.getLogger(DisplayController.class);
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
 		logger.debug("HomePage-Attempted");
 		ModelAndView model = new ModelAndView();
@@ -21,7 +21,7 @@ public class DisplayController {
 		model.setViewName("main");
 		logger.debug("HomePage-Displayed");
 		return model;
-	}
+	}*/
 
 	@RequestMapping(value = "/aboutus", method = RequestMethod.GET)
 	public ModelAndView displayAboutUs() {
