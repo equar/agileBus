@@ -1,41 +1,41 @@
 package com.agilebus.model;
 
 public class BusBean {
-	private String from;
-	private String to;
-	private String dateJourney;
-	private String dateReturn;
+	private String busId;
+	private String plateNumber;
+	private String levelId;
+	private String model;
 
-	public String getFrom() {
-		return from;
+	public String getBusId() {
+		return busId;
 	}
 
-	public void setFrom(String from) {
-		this.from = from;
+	public void setBusId(String busId) {
+		this.busId = busId;
 	}
 
-	public String getTo() {
-		return to;
+	public String getPlateNumber() {
+		return plateNumber;
 	}
 
-	public void setTo(String to) {
-		this.to = to;
+	public void setPlateNumber(String plateNumber) {
+		this.plateNumber = plateNumber;
 	}
 
-	public String getDateJourney() {
-		return dateJourney;
+	public String getLevelId() {
+		return levelId;
 	}
 
-	public void setDateJourney(String dateJourney) {
-		this.dateJourney = dateJourney;
+	public void setLevelId(String levelId) {
+		this.levelId = levelId;
 	}
 
-	public String getDateReturn() {
-		return dateReturn;
+	public String getModel() {
+		return model;
 	}
 
-	public void setDateReturn(String dateReturn) {
-		this.dateReturn = dateReturn;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
 }

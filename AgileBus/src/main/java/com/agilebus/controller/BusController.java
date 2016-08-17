@@ -10,18 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.agilebus.delegate.BusDelegate;
 import com.agilebus.model.BusBean;
 import com.agilebus.model.HelpBean;
 import com.agilebus.model.TicketBean;
+import com.agilebus.service.BusService;
 
 @Controller
 public class BusController {
 
 	@Autowired
-	private BusDelegate busDelegate;
+	private BusService busService;
 
-	@RequestMapping(value = {"/","/searchbus"}, method = RequestMethod.GET)
+	public void setBusService(BusService busService) {
+		this.busService = busService;
+	}
+
+	@RequestMapping(value = { "/", "/searchbus" }, method = RequestMethod.GET)
 	public ModelAndView displaySearchBus(HttpServletRequest request, HttpServletResponse response, BusBean busBean) {
 		ModelAndView model = new ModelAndView("bussearch");
 		model.addObject("bussearch", busBean);
@@ -34,7 +38,7 @@ public class BusController {
 		ModelAndView model = null;
 
 		try {
-			boolean isValidUser = busDelegate.isValidUser(busBean);
+			boolean isValidUser = busService.isValidUser(busBean);
 			if (isValidUser) {
 				System.out.println("User Login Successful");
 				model = new ModelAndView("welcome");
@@ -51,9 +55,10 @@ public class BusController {
 
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/printticket", method = RequestMethod.GET)
-	public ModelAndView displayPrintTicket(HttpServletRequest request, HttpServletResponse response, TicketBean ticketBean) {
+	public ModelAndView displayPrintTicket(HttpServletRequest request, HttpServletResponse response,
+			TicketBean ticketBean) {
 		ModelAndView model = new ModelAndView("printticket");
 		model.addObject("ticketBean", ticketBean);
 		return model;
@@ -65,9 +70,10 @@ public class BusController {
 		model.addObject("helpBean", helpBean);
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/ticketcancel", method = RequestMethod.GET)
-	public ModelAndView displayCancelTicket(HttpServletRequest request, HttpServletResponse response, TicketBean ticketBean) {
+	public ModelAndView displayCancelTicket(HttpServletRequest request, HttpServletResponse response,
+			TicketBean ticketBean) {
 		ModelAndView model = new ModelAndView("cancelticket");
 		model.addObject("ticketBean", ticketBean);
 		return model;

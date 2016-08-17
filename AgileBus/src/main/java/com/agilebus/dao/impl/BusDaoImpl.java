@@ -1,35 +1,37 @@
 package com.agilebus.dao.impl;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import com.agilebus.dao.BusDao;
 import com.agilebus.model.BusBean;
 
+@Repository("busDao")
 public class BusDaoImpl implements BusDao {
-	DataSource dataSource;
 
-	public DataSource getDataSource() {
-		return this.dataSource;
+	protected SessionFactory sessionFactory;
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
+	protected Session getSession() {
+		return sessionFactory.openSession();
 	}
 
-	public boolean isValidUser(BusBean busBean) throws SQLException {
-		String query = "Select count(1) from users where username = ? and password = ?";
-		PreparedStatement pstmt = dataSource.getConnection().prepareStatement(query);
-		pstmt.setString(1, busBean.getFrom());
-		pstmt.setString(2, busBean.getTo());
-		ResultSet resultSet = pstmt.executeQuery();
-		if (resultSet.next())
-			return (resultSet.getInt(1) > 0);
-		else
-			return false;
+	public boolean isValidUser(BusBean busBean) {
+		/*
+		 * String query =
+		 * "Select count(1) from users where username = ? and password = ?";
+		 * PreparedStatement pstmt =
+		 * dataSource.getConnection().prepareStatement(query);
+		 * pstmt.setString(1, busBean.getFrom()); pstmt.setString(2,
+		 * busBean.getTo()); ResultSet resultSet = pstmt.executeQuery(); if
+		 * (resultSet.next()) return (resultSet.getInt(1) > 0); else return
+		 * false;
+		 */
+		return false;
 	}
 
 }

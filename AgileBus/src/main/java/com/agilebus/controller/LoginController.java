@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.agilebus.delegate.LoginDelegate;
 import com.agilebus.model.LoginBean;
+import com.agilebus.model.RoleBean;
+import com.agilebus.service.LoginService;
 
 @Controller
 public class LoginController {
 	@Autowired
-	private LoginDelegate loginDelegate;
+	private LoginService loginService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean) {
@@ -30,7 +31,7 @@ public class LoginController {
 			@ModelAttribute("loginBean") LoginBean loginBean) {
 		ModelAndView model = null;
 		try {
-			boolean isValidUser = loginDelegate.isValidUser(loginBean);
+			boolean isValidUser = loginService.isValidUser(loginBean);
 			if (isValidUser) {
 				System.out.println("User Login Successful");
 				request.setAttribute("loggedInUser", loginBean.getUsername());
@@ -46,9 +47,10 @@ public class LoginController {
 
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
-	public ModelAndView displayChangePassword(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean) {
+	public ModelAndView displayChangePassword(HttpServletRequest request, HttpServletResponse response,
+			LoginBean loginBean) {
 		ModelAndView model = new ModelAndView("passwordchange");
 		model.addObject("loginBean", loginBean);
 		return model;
@@ -74,7 +76,7 @@ public class LoginController {
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/registeruser", method = RequestMethod.GET)
 	public ModelAndView displaySignup(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean) {
 		ModelAndView model = new ModelAndView("signup");
@@ -103,9 +105,10 @@ public class LoginController {
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
-	public ModelAndView displayForgotPassword(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean) {
+	public ModelAndView displayForgotPassword(HttpServletRequest request, HttpServletResponse response,
+			LoginBean loginBean) {
 		ModelAndView model = new ModelAndView("forgotpassword");
 		model.addObject("loginBean", loginBean);
 		return model;
@@ -131,4 +134,32 @@ public class LoginController {
 		}
 		return model;
 	}
+
+	@RequestMapping(value = "/addrole", method = RequestMethod.GET)
+	public ModelAndView displayAddRole(HttpServletRequest request, HttpServletResponse response, RoleBean roleBean) {
+		ModelAndView model = new ModelAndView("addrole");
+		model.addObject("roleBean", roleBean);
+		return model;
+	}
+
+	@RequestMapping(value = "/addrole", method = RequestMethod.POST)
+	public ModelAndView addRole(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("roleBean") RoleBean roleBean) {
+		ModelAndView model = null;
+		try {
+			boolean isRoleAdded = loginService.addUserRole(roleBean);
+			if (isRoleAdded) {
+				request.setAttribute("message", "User Role added succesfully");
+				model = new ModelAndView("addrole");
+			} else {
+				model = new ModelAndView("addrole");
+				request.setAttribute("message", "User Role registration was succesful!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return model;
+	}
+
 }

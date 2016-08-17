@@ -3,6 +3,7 @@ package com.agilebus.delegate;
 import java.sql.SQLException;
 
 import com.agilebus.model.LoginBean;
+import com.agilebus.model.RoleBean;
 import com.agilebus.service.LoginService;
 
 public class LoginDelegate {
@@ -34,6 +35,10 @@ public class LoginDelegate {
 
 	public boolean isPasswordChanged(String username, String password) throws SQLException {
 		return false;
+	}
+	
+	public boolean addUserRole(RoleBean roleBean) throws SQLException {
+		return loginService.addUserRole(roleBean);
 	}
 
 }
