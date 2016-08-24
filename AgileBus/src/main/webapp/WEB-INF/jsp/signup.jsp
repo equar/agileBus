@@ -1,23 +1,33 @@
-<%@include file="include.jsp"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Login</title>
-	</head>
-	<body>
-	<h3>Online Bus Tickets Booking Zero with Booking Fees</h3>
-		<font color="red">${message}</font>
-		<form:form id="registerForm" method="post" action="registeruser" modelAttribute="loginBean">
+<%@include file="header.jsp"%>
+<%@include file="slidebus.jsp"%>
+<div>
+	<h3>Sign Up</h3>
+	<form:form id="registerForm" method="post" action="signup"
+		modelAttribute="user">
 
-			<form:label path="email">Email address</form:label>
-			<form:input id="email" name="email" path="" /><br>
-			<form:label path="password">your password</form:label>
-			<form:password id="password" name="password" path="" /><br>
-			<form:label path="">By signing up, you agree to our <a href#>terms and conditions</a></form:label><br>
-			<input type="submit" value="PROCEED" /><br>
-			<form:label path="">Already have an account?  <a href#>SIGN IN</a></form:label>
-		</form:form>
-	</body>
-</html>
+		<form:label path="emailId">Email:</form:label>
+		<form:input id="emailId" name="emailId" path="" />
+		<form:errors path="emailId" element="div" />
+		<br>
+		<form:label path="phoneNumber">PhoneNumber:</form:label>
+		<form:input id="phoneNumber" name="phoneNumber" path="" />
+		<form:errors path="phoneNumber" element="div" />
+		<br>
+		<form:label path="password">Password:</form:label>
+		<form:password id="password" name="password" path="" />
+		<form:errors path="password" element="div" />
+		<br>
+		<form:label path="confirmPassword">Confirm Password:</form:label>
+		<form:password id="confirmPassword" name="confirmPassword" path="" />
+		<form:errors path="confirmPassword" element="div" />
+		<br>
+
+		<input type="submit" value="Submit" />
+		<br>
+		<form:label path="">Already have an account?  <a
+				href="login">Sign In</a>
+		</form:label>
+	</form:form>
+</div>
+<%@include file="topbus.jsp"%>
+<%@include file="footer.jsp"%>

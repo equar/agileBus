@@ -2,12 +2,10 @@ package com.agilebus.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 
 import com.agilebus.dao.BusDao;
-import com.agilebus.model.BusBean;
+import com.agilebus.model.Bus;
 
-@Repository("busDao")
 public class BusDaoImpl implements BusDao {
 
 	protected SessionFactory sessionFactory;
@@ -20,7 +18,7 @@ public class BusDaoImpl implements BusDao {
 		return sessionFactory.openSession();
 	}
 
-	public boolean isValidUser(BusBean busBean) {
+	public boolean isValidUser(Bus bus) {
 		/*
 		 * String query =
 		 * "Select count(1) from users where username = ? and password = ?";

@@ -1,10 +1,13 @@
 <%@include file="header.jsp"%>
 <%@include file="slidebus.jsp"%>
-<h3>Online Bus Tickets Booking with Zero Booking Fees</h3>
-<form:form id="searchForm" method="post" action="searchbus"
-	modelAttribute="busBean">
+<div class="container text-center">
+	<h3>Online Bus Tickets Booking with Zero Booking Fees</h3>
+	<div class="row">
+		<div class="col-sm-12">
+			<form:form id="searchForm" method="post" action="searchbus"
+				modelAttribute="bus">
 
-	<form:label path="from">From:</form:label>
+				<%-- <form:label path="from">From:</form:label>
 	<form:input id="from" name="from" path="" />
 	<br>
 	<form:label path="to">To:</form:label>
@@ -15,9 +18,12 @@
 	<br>
 	<form:label path="dateReturn">Date of Return(Optional):</form:label>
 	<form:input id="dateReturn" name="dateReturn" path="" />
-	<br>
+	<br> --%>
 
-	<input type="submit" value="Search Buses" />
-</form:form>
+				<input type="submit" value="Search Buses" />
+			</form:form>
+		</div>
+	</div>
+</div>
 <%@include file="topbus.jsp"%>
 <%@include file="footer.jsp"%>

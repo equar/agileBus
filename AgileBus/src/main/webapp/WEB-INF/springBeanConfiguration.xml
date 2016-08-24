@@ -48,7 +48,17 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>com.agilebus.model.RoleBean</value>
+				<value>com.agilebus.model.UserRole</value>
+				<value>com.agilebus.model.User</value>
+				<value>com.agilebus.model.Trip</value>
+				<value>com.agilebus.model.Location</value>
+				<value>com.agilebus.model.Company</value>
+				<value>com.agilebus.model.Bus</value>
+				<value>com.agilebus.model.BusLevel</value>
+				<value>com.agilebus.model.Amenity</value>
+				<value>com.agilebus.model.TicketAgent</value>
+				<value>com.agilebus.model.Passenger</value>
+				<value>com.agilebus.model.Ticket</value>
 			</list>
 		</property>
 	</bean>

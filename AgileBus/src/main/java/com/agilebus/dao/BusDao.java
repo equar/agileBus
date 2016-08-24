@@ -1,7 +1,7 @@
 package com.agilebus.dao;
 
-import com.agilebus.model.BusBean;
+import com.agilebus.model.Bus;
 
 public interface BusDao {
-	public boolean isValidUser(BusBean busBean);
+	public boolean isValidUser(Bus bus);
 }

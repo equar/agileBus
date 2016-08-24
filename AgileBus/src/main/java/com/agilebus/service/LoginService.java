@@ -1,12 +1,12 @@
 package com.agilebus.service;
 
-import java.sql.SQLException;
-
-import com.agilebus.model.LoginBean;
-import com.agilebus.model.RoleBean;
+import com.agilebus.model.User;
+import com.agilebus.model.UserRole;
 
 public interface LoginService {
-	public boolean isValidUser(LoginBean loginBean);
+	public boolean isValidUser(User user);
 
-	public boolean addUserRole(RoleBean roleBean);
+	public boolean addUserRole(UserRole userRole);
+
+	public boolean registerAccount(User user);
 }

@@ -12,21 +12,26 @@ import com.agilebus.util.AgileUtil;
 public class DisplayController {
 	private static final Logger logger = Logger.getLogger(DisplayController.class);
 
-	/*@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView defaultPage() {
-		logger.debug("HomePage-Attempted");
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security + Hibernate Example");
-		model.addObject("message", "This is default page!");
-		model.setViewName("main");
-		logger.debug("HomePage-Displayed");
-		return model;
-	}*/
+	/*
+	 * @RequestMapping(value = "/", method = RequestMethod.GET) public
+	 * ModelAndView defaultPage() { logger.debug("HomePage-Attempted");
+	 * ModelAndView model = new ModelAndView(); model.addObject("title",
+	 * "Spring Security + Hibernate Example"); model.addObject("message",
+	 * "This is default page!"); model.setViewName("main");
+	 * logger.debug("HomePage-Displayed"); return model; }
+	 */
 
 	@RequestMapping(value = "/aboutus", method = RequestMethod.GET)
 	public ModelAndView displayAboutUs() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("aboutus");
+		return model;
+	}
+
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public ModelAndView displayAdmin() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("admin");
 		return model;
 	}
 

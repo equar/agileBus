@@ -2,7 +2,7 @@ package com.agilebus.delegate;
 
 import java.sql.SQLException;
 
-import com.agilebus.model.BusBean;
+import com.agilebus.model.Bus;
 import com.agilebus.service.BusService;
 
 public class BusDelegate {
@@ -16,7 +16,7 @@ public class BusDelegate {
 		this.busService = busService;
 	}
 
-	public boolean isValidUser(BusBean busBean) throws SQLException {
+	public boolean isValidUser(Bus busBean) throws SQLException {
 		return busService.isValidUser(busBean);
 	}
 

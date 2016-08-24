@@ -2,8 +2,8 @@ package com.agilebus.delegate;
 
 import java.sql.SQLException;
 
-import com.agilebus.model.LoginBean;
-import com.agilebus.model.RoleBean;
+import com.agilebus.model.User;
+import com.agilebus.model.UserRole;
 import com.agilebus.service.LoginService;
 
 public class LoginDelegate {
@@ -17,7 +17,7 @@ public class LoginDelegate {
 		this.loginService = loginService;
 	}
 
-	public boolean isValidUser(LoginBean loginBean) throws SQLException {
+	public boolean isValidUser(User loginBean) throws SQLException {
 		return loginService.isValidUser(loginBean);
 	}
 
@@ -37,7 +37,7 @@ public class LoginDelegate {
 		return false;
 	}
 	
-	public boolean addUserRole(RoleBean roleBean) throws SQLException {
+	public boolean addUserRole(UserRole roleBean) throws SQLException {
 		return loginService.addUserRole(roleBean);
 	}
 

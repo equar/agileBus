@@ -10,14 +10,14 @@
 <body>
 	<h3>Print/SMS Ticket</h3>
 	<form:form id="ticketForm" method="post" action="printticket"
-		modelAttribute="ticketBean">
+		modelAttribute="ticket">
 
 		<form:label path="ticketNumber">Ticket Number</form:label>
 		<form:input id="ticketNumber" name="ticketNumber" path="" />
 		<br>
-		<form:radiobutton path="ticketType" value="print"/>Print Ticket<br>
-		<form:radiobutton path="ticketType" value="sms"/>Get Ticket by SMS<br>
-		<form:radiobutton path="ticketType" value="email"/>Get Ticket by Email<br>
+		<form:radiobutton path="ticketType" value="print" />Print Ticket<br>
+		<form:radiobutton path="ticketType" value="sms" />Get Ticket by SMS<br>
+		<form:radiobutton path="ticketType" value="email" />Get Ticket by Email<br>
 		<input type="submit" value="Submit" />
 	</form:form>
 

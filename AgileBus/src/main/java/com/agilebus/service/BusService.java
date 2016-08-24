@@ -1,7 +1,7 @@
 package com.agilebus.service;
 
-import com.agilebus.model.BusBean;
+import com.agilebus.model.Bus;
 
 public interface BusService {
-	public boolean isValidUser(BusBean busBean);
+	public boolean isValidUser(Bus bus);
 }

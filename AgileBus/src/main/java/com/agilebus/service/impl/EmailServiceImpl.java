@@ -2,10 +2,11 @@ package com.agilebus.service.impl;
 
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Service;
 
 import com.agilebus.model.EmailBean;
 import com.agilebus.service.EmailService;
-
+@Service
 public class EmailServiceImpl implements EmailService{
 	private MailSender mailSender;
 

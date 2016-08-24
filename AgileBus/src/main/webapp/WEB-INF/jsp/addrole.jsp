@@ -4,8 +4,8 @@
 	<h3>User Role Management</h3>
 	<font color="red">${message}</font>
 	<form:form id="roleForm" method="post" action="addrole"
-		modelAttribute="roleBean">
-		<form:label path="roleType">Role Type</form:label>
+		modelAttribute="userRole">
+		<form:label path="roleType">Role Type:</form:label>
 		<form:input id="roleType" name="roleType" path="" />
 		<br>
 		<br>

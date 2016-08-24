@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.agilebus.model.BusBean;
+import com.agilebus.model.Bus;
 import com.agilebus.model.HelpBean;
-import com.agilebus.model.TicketBean;
+import com.agilebus.model.TicketAgent;
 import com.agilebus.service.BusService;
 
 @Controller
@@ -26,22 +26,22 @@ public class BusController {
 	}
 
 	@RequestMapping(value = { "/", "/searchbus" }, method = RequestMethod.GET)
-	public ModelAndView displaySearchBus(HttpServletRequest request, HttpServletResponse response, BusBean busBean) {
+	public ModelAndView displaySearchBus(HttpServletRequest request, HttpServletResponse response, Bus bus) {
 		ModelAndView model = new ModelAndView("bussearch");
-		model.addObject("bussearch", busBean);
+		model.addObject("bussearch", bus);
 		return model;
 	}
 
 	@RequestMapping(value = "/searchbus", method = RequestMethod.POST)
 	public ModelAndView searchBus(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("busBean") BusBean busBean) {
+			@ModelAttribute("bus") Bus bus) {
 		ModelAndView model = null;
 
 		try {
-			boolean isValidUser = busService.isValidUser(busBean);
+			boolean isValidUser = busService.isValidUser(bus);
 			if (isValidUser) {
 				System.out.println("User Login Successful");
-				model = new ModelAndView("welcome");
+				model = new ModelAndView("bussearch");
 			} else {
 				model = new ModelAndView("bussearch");
 				request.setAttribute("message", "Invalid credentials!!");
@@ -51,16 +51,16 @@ public class BusController {
 			e.printStackTrace();
 		}
 
-		model = new ModelAndView("searchbus");
+		model = new ModelAndView("searchbusresults");
 
 		return model;
 	}
 
 	@RequestMapping(value = "/printticket", method = RequestMethod.GET)
 	public ModelAndView displayPrintTicket(HttpServletRequest request, HttpServletResponse response,
-			TicketBean ticketBean) {
+			TicketAgent ticketAgent) {
 		ModelAndView model = new ModelAndView("printticket");
-		model.addObject("ticketBean", ticketBean);
+		model.addObject("ticketAgent", ticketAgent);
 		return model;
 	}
 
@@ -73,9 +73,9 @@ public class BusController {
 
 	@RequestMapping(value = "/ticketcancel", method = RequestMethod.GET)
 	public ModelAndView displayCancelTicket(HttpServletRequest request, HttpServletResponse response,
-			TicketBean ticketBean) {
+			TicketAgent ticketAgent) {
 		ModelAndView model = new ModelAndView("cancelticket");
-		model.addObject("ticketBean", ticketBean);
+		model.addObject("ticketAgent", ticketAgent);
 		return model;
 	}
 

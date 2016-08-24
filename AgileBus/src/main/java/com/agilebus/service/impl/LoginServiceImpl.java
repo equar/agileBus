@@ -1,14 +1,12 @@
 package com.agilebus.service.impl;
 
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.agilebus.dao.LoginDao;
-import com.agilebus.model.LoginBean;
-import com.agilebus.model.RoleBean;
+import com.agilebus.model.User;
+import com.agilebus.model.UserRole;
 import com.agilebus.service.LoginService;
 
-@Service("loginService")
 public class LoginServiceImpl implements LoginService {
 
 	private LoginDao loginDao;
@@ -19,14 +17,20 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	@Transactional
-	public boolean isValidUser(LoginBean loginBean) {
-		return loginDao.isValidUser(loginBean);
+	public boolean isValidUser(User user) {
+		return loginDao.isValidUser(user);
 	}
 
 	@Override
 	@Transactional
-	public boolean addUserRole(RoleBean roleBean) {
-		return loginDao.addUserRole(roleBean);
+	public boolean addUserRole(UserRole userRole) {
+		return loginDao.addUserRole(userRole);
+	}
+
+	@Override
+	@Transactional
+	public boolean registerAccount(User user) {
+		return loginDao.registerAccount(user);
 	}
 
 }
